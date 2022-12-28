@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Battery Level Using Glassmorphism</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class="header">
+            <div class="toggle"></div>
+            <div class="action">
+                <div class="battery">
+                    <h2>Battery</h2>
+                    <div class="shape">
+                        <div class="level">
+                            <div class="percent"></div>
+                        </div>
+                    </div>
+                    <div class="per">50%</div>
+                </div>
+            </div>
+        </section>
+        <script>
+            let percent=document.querySelector('.percent');
+            let per=document.querySelector('.per');
+            navigator.getBattery().then(function(content){
+                percent.style.width = content.level*100 + '%';
+                per.innerHTML = content.level*100 + '%';
+            })
+        </script>
+    </body>
+</html>
